@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertox Enterprise Auth</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="mesh"></div>
+<div class="cursor-glow" id="glow"></div>
+
+<div class="auth-container">
+  <div class="auth-card" id="card">
+
+    <div class="logo">
+      <h1>VERTOX</h1>
+      <span>Enterprise Identity</span>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Sign In</button>
+      <button class="tab" data-tab="register">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="login" class="form active">
+      <div class="field">
+        <input type="email" required>
+        <label>Email</label>
+      </div>
+
+      <div class="field">
+        <input type="password" required>
+        <label>Password</label>
+      </div>
+
+      <div class="row">
+        <label class="remember">
+          <input type="checkbox" id="rememberMe">
+          <span class="checkmark">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <span class="text">Remember device</span>
+        </label>
+        <a href="#" class="link">Forgot?</a>
+      </div>
+
+      <button type="submit" class="primary">Continue</button>
+
+      <div class="divider">OR</div>
+
+      <button type="button" class="social google">Continue with Google</button>
+      <button type="button" class="social apple">Continue with Apple</button>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="register" class="form">
+      <div class="field">
+        <input type="text" required>
+        <label>Full Name</label>
+      </div>
+
+      <div class="field">
+        <input type="email" required>
+        <label>Email</label>
+      </div>
+
+      <div class="field">
+        <input type="password" required>
+        <label>Password</label>
+      </div>
+
+      <button type="submit" class="primary">Create Account</button>
+    </form>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

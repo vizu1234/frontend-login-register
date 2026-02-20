@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+body{
+  height:100vh;
+  background:#0a0f1a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+/* Mesh */
+.mesh{
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:
+    radial-gradient(circle at 20% 30%, #1e3a8a 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, #6d28d9 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, #0f172a 0%, transparent 60%);
+  animation:moveMesh 20s infinite alternate ease-in-out;
+  z-index:0;
+  pointer-events:none;
+}
+@keyframes moveMesh{from{transform:translate(0,0)} to{transform:translate(-10%,-10%)}}
+
+/* Cursor Glow */
+.cursor-glow{
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle, rgba(99,102,241,0.25), transparent 70%);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:1;
+}
+
+/* Container */
+.auth-container{position:relative;z-index:2;perspective:1200px}
+
+/* Card */
+.auth-card{
+  width:420px;
+  padding:40px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 40px 80px rgba(0,0,0,0.6);
+  position:relative;
+  overflow:visible;
+  z-index:2;
+}
+
+/* Light Sweep */
+.auth-card::after{
+  content:"";
+  position:absolute;
+  top:-100%;
+  left:-100%;
+  width:200%;
+  height:200%;
+  background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.1), transparent 60%);
+  transform:rotate(25deg);
+  animation:sweep 6s infinite linear;
+  pointer-events:none;
+}
+@keyframes sweep{from{transform:translateX(-100%) rotate(25deg)} to{transform:translateX(100%) rotate(25deg)}}
+
+/* Logo */
+.logo h1{font-size:24px;letter-spacing:3px}
+.logo span{font-size:12px;opacity:.6}
+
+/* Tabs */
+.tabs{display:flex;margin:30px 0}
+.tab{flex:1;background:none;border:none;color:white;opacity:.5;padding:10px;cursor:pointer;border-bottom:2px solid transparent}
+.tab.active{opacity:1;border-color:#6366f1}
+
+/* Forms */
+.form{display:none;position:relative;z-index:2}
+.form.active{display:block}
+.field{position:relative;margin-bottom:20px}
+.field input{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.3);color:white}
+.field label{position:absolute;left:12px;top:12px;font-size:13px;opacity:.6;transition:.3s;pointer-events:none}
+.field input:focus + label,
+.field input:valid + label{top:-8px;font-size:11px;background:#0a0f1a;padding:0 4px;color:#6366f1}
+
+/* Row */
+.row{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:20px}
+
+/* Checkbox */
+.remember{display:flex;align-items:center;cursor:pointer;gap:10px;user-select:none;font-size:13px;color:#cbd5e1}
+.remember input{display:none}
+.checkmark{width:18px;height:18px;border-radius:6px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition: all .25s ease;background: rgba(255,255,255,.05)}
+.checkmark svg{width:12px;height:12px;stroke:white;stroke-width:3;fill:none;stroke-dasharray:30;stroke-dashoffset:30;transition: stroke-dashoffset .3s ease}
+.remember input:checked + .checkmark{background: linear-gradient(135deg,#6366f1,#8b5cf6);border-color: transparent;box-shadow:0 0 12px rgba(99,102,241,.6)}
+.remember input:checked + .checkmark svg{stroke-dashoffset:0}
+.remember:hover .checkmark{border-color:#6366f1}
+
+.link{color:#9ca3af;text-decoration:none}
+.link:hover{color:white}
+
+/* Buttons */
+.primary{width:100%;padding:12px;border:none;border-radius:8px;background:linear-gradient(90deg,#6366f1,#8b5cf6);color:white;cursor:pointer;transition:.3s}
+.primary:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(99,102,241,.4)}
+.divider{text-align:center;margin:20px 0;opacity:.4;font-size:12px}
+.social{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:white;margin-bottom:10px;cursor:pointer;transition:.3s}
+.social:hover{background:rgba(255,255,255,.1)}
